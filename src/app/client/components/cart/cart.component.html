@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Carrito de Compras</h2>
+    <div *ngIf="productosEnCarrito.length === 0" class="alert alert-info">
+        No hay productos en el carrito.
+    </div>
+    <div *ngIf="productosEnCarrito.length > 0" class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of productosEnCarrito">
+                                    <td><img [src]="item.producto.imagen_url" alt="{{ item.producto.nombre }}" class="img-thumbnail" style="max-width: 100px;"></td>
+                                    <td>{{ item.producto.nombre }}</td>
+                                    <td>{{ item.producto.descripcion }}</td>
+                                    <td>${{ item.producto.precio }}</td>
+                                    <td>{{ item.cantidad }}</td>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm" (click)="eliminarDelCarrito(item.producto)">
+                                            <i class="fas fa-trash"></i> Eliminar
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cart-total">
+                        <h3>Total: ${{ calcularTotal() }}</h3>
+                    </div>
+                    <button class="btn btn-primary" (click)="realizarVenta()">Procesar Venta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

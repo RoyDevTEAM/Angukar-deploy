@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div class="container">
+  <h2>Productos Disponibles</h2>
+  <div class="row product-list">
+    <div *ngFor="let producto of productos" class="col-md-4 mb-4">
+      <div class="card product-card">
+        <div class="product-image" [style.background-image]="'url(' + producto.imagen_url + ')'"></div>
+        <div class="card-body">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text">Precio: ${{ producto.precio }}</p>
+          <p class="card-text">{{ producto.descripcion }}</p>
+          <p class="card-text">Stock: {{ producto.stock }}</p>
+          <p class="card-text" *ngIf="producto.stock === 0">
+            <span class="text-danger">Producto agotado</span>
+          </p>
+          <button class="btn btn-primary btn-block" 
+                  *ngIf="(isLoggedIn$ | async) && (producto.stock > 0)" 
+                  (click)="agregarAlCarrito(producto)">
+            <i class="fas fa-cart-plus"></i> Agregar al carrito
+          </button>
+          <button class="btn btn-primary btn-block" 
+                  *ngIf="(isLoggedIn$ | async) && (producto.stock <= 0)" 
+                  disabled>
+            Producto agotado
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

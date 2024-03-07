@@ -1,0 +1,37 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px; /* Ancho del menú lateral */
+}
+
+.mat-toolbar {
+  background-color: #3f51b5; /* Color de fondo del toolbar */
+  color: white; /* Color del texto del toolbar */
+}
+
+.mat-nav-list a {
+  color: white; /* Color del texto de los enlaces del menú */
+}
+
+.mat-nav-list a:hover {
+  background-color: #333; /* Color de fondo al hacer hover en los enlaces del menú */
+}
+
+.mat-menu-item {
+  color: white; /* Color del texto de los items del menú desplegable */
+}
+
+.mat-menu-item:hover {
+  background-color: #333; /* Color de fondo al hacer hover en los items del menú desplegable */
+}
+
+/* Estilos para el botón de perfil */
+.mat-icon-button {
+  color: white; /* Color del icono del botón de perfil */
+}
+
+.mat-icon-button:hover {
+  background-color: transparent; /* Color de fondo al hacer hover en el botón de perfil */
+}

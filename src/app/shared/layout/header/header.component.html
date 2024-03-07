@@ -1,0 +1,44 @@
+<!-- header.component.html -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/home">
+      <mat-icon>home</mat-icon> Home
+    </a>
+    <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [class.show]="isMenuOpen">
+      <ul class="navbar-nav mr-auto">
+        <!-- Aquí van los enlaces del menú -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products">
+            <mat-icon>store</mat-icon> Products
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart">
+            <mat-icon>shopping_cart</mat-icon> Cart
+            <span class="cart-counter" *ngIf="productosEnCarrito > 0">{{ productosEnCarrito }}</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <!-- Aquí van los enlaces del menú derecho -->
+        <li class="nav-item" *ngIf="isLoggedIn; else loginButton">
+          <a class="nav-link" (click)="logout()">
+            {{ userName }} Logout <mat-icon>logout</mat-icon>
+          </a>
+        </li>
+        <ng-template #loginButton>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">
+              <mat-icon>login</mat-icon> Login
+            </a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>

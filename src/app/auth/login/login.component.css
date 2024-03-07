@@ -1,0 +1,35 @@
+/* Estilos para el contenedor del formulario de inicio de sesión */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #222; /* Color de fondo oscuro */
+}
+
+/* Estilos para la tarjeta de inicio de sesión */
+.login-card {
+  width: 400px;
+}
+
+/* Estilos para el boAtón de inicio de sesión */
+.btn-primary {
+  background-color: #28a745; /* Color verde */
+  border-color: #28a745; /* Borde verde */
+}
+
+.btn-primary:hover {
+  background-color: #218838; /* Color verde oscuro al pasar el ratón */
+  border-color: #218838; /* Borde verde oscuro al pasar el ratón */
+  transform: translateY(-2px); /* Efecto 3D de elevación */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3); /* Sombra al elevar */
+}
+
+/* Estilos para el texto del enlace */
+.text-center a {
+  color: #17a2b8; /* Color azul claro para el enlace */
+}
+
+.text-center a:hover {
+  color: #138496; /* Color azul oscuro al pasar el ratón */
+}
